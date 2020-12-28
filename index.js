@@ -2,6 +2,7 @@
 function animation() {
 
     gsap.registerPlugin(ScrollTrigger);
+    gsap.config({nullTargetWarn: false });
 
 gsap.utils.toArray('.wrap-container').forEach((container, index, containers) => {
         let rvimg = container.querySelector('.reveal-img');
@@ -55,8 +56,14 @@ animation();
 const newContainer = document.querySelector('.whole-container');
 const text = document.querySelector('.loading-text');
 let load = 0;
+let int;
 
-let int = setInterval(blurring, 30)
+window.addEventListener('load', (e) => {
+    if (e.target.location.href === "https://rajarajan15feb.github.io/New-Website/Fashion/index.html") {
+        int = setInterval(blurring, 30);
+    }
+    
+})
 
 function blurring(e) {
     load++;
